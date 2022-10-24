@@ -1,0 +1,19 @@
+created: 20221021185236605
+modified: 20221023192705945
+tags: $:/tags/Macro/Garden
+title: $:/plugins/kookma/garden/macros/open-in-storyriver
+type: text/vnd.tiddlywiki
+
+\define open-this-in-storyriver(thisTiddler)
+<$let
+  code-tiddler   = <<__thisTiddler__>>
+  remark-tiddler = {{{ [<code-tiddler>removesuffix[code]addsuffix[remark]] }}}
+  >
+<$button class="tc-btn-invisible" tooltip="open example code and remark in story river" actions='	
+  <$action-navigate $to=<<remark-tiddler>> />
+  <$action-navigate $to=<<code-tiddler>> $scroll="yes"/>
+ '>
+{{$:/plugins/kookma/garden/images/open-in-story}}
+</$button>
+</$let>	
+\end

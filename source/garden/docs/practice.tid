@@ -1,0 +1,9 @@
+created: 20221021115906295
+modified: 20221021120012630
+tags: doc
+title: $:/plugins/kookma/garden/docs/practice
+type: text/vnd.tiddlywiki
+
+* Each example uses two tiddlers
+* Name them as 001/code, 001/remark
+* Use a button to create the next unused number

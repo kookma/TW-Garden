@@ -1,0 +1,27 @@
+code-body: yes
+created: 20210525092326172
+modified: 20221024034724436
+tags: 
+title: $:/plugins/kookma/garden/templates/editor-viewer
+type: text/vnd.tiddlywiki
+
+\define rawCode()
+<$edit-text class="twg-wide-edit"	tag=textarea field=text/>
+\end
+
+\define lockedCode()
+<$codeblock code={{!!text}} language=xml />
+\end
+
+\define renCode()
+<$transclude mode=block/>
+\end
+
+<section class="twg-grid-container">
+    <div class="twg-grid-column twg-grid-code">
+        <$list filter="[<vv-edit-status>match[yes]]" variable=null emptyMessage=<<lockedCode>> ><<rawCode>></$list>
+    </div>	
+    <div class="twg-grid-column twg-grid-rendered">
+        <<renCode>>
+    </div>
+</section>

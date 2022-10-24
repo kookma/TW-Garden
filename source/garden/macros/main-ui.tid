@@ -1,0 +1,79 @@
+created: 20210525091619581
+modified: 20221024034724440
+tags: $:/tags/Macro/Garden
+title: $:/plugins/kookma/garden/macros/main-ui
+type: text/vnd.tiddlywiki
+
+\whitespace trim
+
+\define stateTid()    xx$:/state/garden/examples
+\define sandboxTid()  xx$:/sandbox/garden/examples/$(vv-exmp-tiddler)$
+
+\define btn-edit-example()
+<$button class="tc-btn-invisible" tooltip="edit code">{{$:/core/images/edit-button}}
+<$action-setfield $tiddler=<<sandboxTid>> $field=text $value={{{ [<vv-exmp-tiddler>get[text]] }}}/>
+</$button>
+\end
+
+\define btn-reset-example()
+<$list filter="[<vv-edit-status>match[yes]then[no]else[yes]]" variable=disabled>
+<$button class="tc-btn-invisible" disabled=<<disabled>> tooltip="restore original code">{{$:/core/images/refresh-button}}
+<$action-deletetiddler $tiddler=<<sandboxTid>>/>
+</$button></$list>
+\end
+
+\define btn-copy-example-to-clipboard()
+<$button message="tm-copy-to-clipboard" class="tc-btn-invisible" tooltip="copy code to clipboard" 
+         param={{{ [<sandboxTid>get[text]] :else[<stateTid>get[text]get[text]] }}} >
+{{$:/core/images/copy-clipboard}}
+</$button>
+\end
+
+<!-- create the main ui of garden -->
+\define garden-ui(filter:'[all[shadows+tiddlers]tag[Code]sort[title]]')
+<$let vv-exmp-filter  = <<__filter__>>
+      vv-exmp-tiddler = {{{ [<stateTid>get[text]] }}}
+      vv-edit-status  = {{{ [<sandboxTid>is[tiddler]then[yes]else[no]] }}} >
+
+<!-- create the header, to select an example and navigate through them -->
+<header class="twg-header">
+<$select tiddler=<<stateTid>> default='default' class="twg-select">
+<option value='default' disabled>Select an example</option>
+<$list filter='[subfilter<vv-exmp-filter>]'>
+<option value=<<currentTiddler>>>
+<$view field='caption'>
+<$view field='title'/>
+</$view>
+</option>
+</$list>
+</$select>
+
+<$tiddler tiddler=<<vv-exmp-tiddler>> >
+<$macrocall $name=simpleNavigation tag="Code" class="twg-navigation"/>
+</$tiddler>
+</header>
+
+<!-- the Nav part implements buttons to create/clone/view buttons and edit/reset/copy code-->
+<nav class="twg-nav">
+<div>
+<<create-new-example>> | 
+<$macrocall $name="clone-this-example" thisTiddler=<<vv-exmp-tiddler>> /> | 
+<$macrocall $name="open-this-in-storyriver" thisTiddler=<<vv-exmp-tiddler>> />
+</div>
+<div>
+<<btn-edit-example>> | <<btn-reset-example>> | <<btn-copy-example-to-clipboard>>
+</div>
+</nav>
+
+<!-- display the body of code -->
+<$tiddler tiddler={{{ [<vv-edit-status>match[yes]then<sandboxTid>else<vv-exmp-tiddler>] }}} >
+<$transclude mode=block tiddler="$:/plugins/kookma/garden/templates/editor-viewer"/>
+</$tiddler>
+
+<!-- display the remark section of example (remark tiddler) -->
+<section class="twg-remarks">
+<$transclude tiddler={{{ [<vv-exmp-tiddler>removesuffix[code]addsuffix[remark]]}}} mode=block/>
+</section>
+
+</$let>
+\end

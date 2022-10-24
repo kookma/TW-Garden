@@ -1,0 +1,21 @@
+created: 20210526051003974
+modified: 20221021070724684
+tags: doc
+title: $:/plugins/kookma/garden/docs/example
+type: text/vnd.tiddlywiki
+
+Examples have two part
+
+* example code tiddler
+** only contains the code
+* example remarks tiddler
+** only contains the explanation
+
+!! Viewtemplate
+* An example tiddler is rendered (displayed) using [[$:/plugins/kookma/garden/viewtemplates/tiddler-code]]
+** The viewtemplate shows the content of code tiddler as codeblock using `xml` language
+** The viewtemplate shows the content of remarks tiddler as normal
+
+* A remark
+
+<<alert info "The standrad Tiddlywiki viewtemplate is NOT used here, instead cascades is used.">>

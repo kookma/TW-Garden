@@ -1,0 +1,15 @@
+.twg-header {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: flex-start;
+	gap:10px;
+	margin-bottom:5px;
+}
+
+.twg-header .twg-select{
+	flex: 3 1 360px;
+}
+
+.twg-header .twg-navigation{
+	flex: 1 1 120px;
+}

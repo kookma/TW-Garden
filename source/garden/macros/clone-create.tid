@@ -1,0 +1,40 @@
+created: 20221021124116863
+modified: 20221023200513097
+tags: $:/tags/Macro/Garden
+title: $:/plugins/kookma/garden/macros/clone-create
+type: text/vnd.tiddlywiki
+
+\define create-new-actions()
+<$let
+  new-code-title   = <<unusedtitle template:"$count:3$/code">> 
+  new-remark-title = {{{ [<new-code-title>removesuffix[code]addsuffix[remark]] }}} 
+  >
+<$action-sendmessage $message="tm-new-tiddler" title=<<new-remark-title>> tags="Remark" />
+<$action-sendmessage $message="tm-new-tiddler" title=<<new-code-title>> tags="Code"   description="what is this code?" keywords=""/>
+</$let>	
+\end	
+
+\define create-new-example()
+<$button class="tc-btn-invisible" tooltip="create new example" actions=<<create-new-actions>> >
+{{$:/core/images/new-button}}
+</$button>
+\end
+
+\define clone-this-actions()
+<$let
+  new-code-title      = <<unusedtitle template:"$count:3$/code">> 
+  new-remark-title    = {{{ [<new-code-title>removesuffix[code]addsuffix[remark]] }}} 
+  new-code-template   = <<__thisTiddler__>>
+  new-remark-template = {{{ [<new-code-template>removesuffix[code]addsuffix[remark]] }}}
+  >
+<$action-sendmessage $message="tm-new-tiddler" $param=<<new-remark-template>> title=<<new-remark-title>>  />	
+<$action-sendmessage $message="tm-new-tiddler" $param=<<new-code-template>>   title=<<new-code-title>>    />
+</$let>	
+\end	
+
+
+\define clone-this-example(thisTiddler)
+<$button class="tc-btn-invisible" tooltip="clone this example" actions=<<clone-this-actions>> >
+{{$:/core/images/clone-button}}
+</$button>
+\end

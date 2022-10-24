@@ -1,0 +1,12 @@
+.twg-example-header{
+	padding:5px;
+}
+
+.twg-example-header,
+.twg-example-remarks{
+	margin-left:1.2em;
+}
+.twg-example h2{
+	font-weight:500;
+	font-size: 0.9rem;
+}

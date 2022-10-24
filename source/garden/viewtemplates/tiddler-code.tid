@@ -1,0 +1,26 @@
+code-body: yes
+created: 20221020190229529
+modified: 20221023200524937
+tags: 
+title: $:/plugins/kookma/garden/viewtemplates/tiddler-code
+type: text/vnd.tiddlywiki
+
+<div class="twg-example">
+
+; Description
+: <$transclude field='description' mode=inline />
+
+; Code
+:<section class="twg-example-code">
+  <$codeblock code={{!!text}} language=xml/>
+</section>
+
+; Remark
+:<section class="twg-example-code">
+  <$transclude tiddler={{{[<currentTiddler>removesuffix[code]addsuffix[remark]]}}} field=text mode=block/>
+</section>  
+
+</div>
+
+<footer class="twg-footer">
+Go to remark: <$link to={{{[<currentTiddler>removesuffix[code]addsuffix[remark]]}}}/></footer>

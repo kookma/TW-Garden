@@ -1,0 +1,19 @@
+.twg-grid-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax( max(300px,48%), 1fr));
+	grid-gap: 10px;
+}
+.twg-grid-column{
+	border-radius:5px;
+	border:1px solid #ccc;
+	max-height:85vh;
+	overflow:auto;
+}
+
+.twg-grid-code .hljs {
+	height: 100%;
+}
+.twg-grid-rendered{
+	padding:8px;
+	max-width:100%;
+}

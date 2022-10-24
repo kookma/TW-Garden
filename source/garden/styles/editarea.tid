@@ -1,0 +1,23 @@
+created: 20210525081421822
+modified: 20221021060636903
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/garden/styles/editarea
+type: text/vnd.tiddlywiki
+
+.twg-wide-edit { 
+min-width:100%;
+min-height:240px;
+margin:0;
+resize:vertical;
+border-radius:5px;
+border:none;
+outline:none;
+font-family:{{$:/themes/tiddlywiki/vanilla/settings/codefontfamily}}
+}
+.twg-grid-code pre{
+ margin:0;
+ border:none;
+ background-color:unset;
+ min-width:100%;
+min-height:240px;
+}
