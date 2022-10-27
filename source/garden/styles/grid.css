@@ -6,7 +6,7 @@
 .twg-grid-column{
 	border-radius:5px;
 	border:1px solid #ccc;
-	max-height:85vh;
+	max-height:75vh;
 	overflow:auto;
 }
 

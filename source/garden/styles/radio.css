@@ -1,0 +1,8 @@
+.twg-radio {
+	font-size:0.9em;
+}
+
+.twg-radio input[type="radio"] {
+	vertical-align: middle;
+	height:0.9em;
+}

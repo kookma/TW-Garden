@@ -1,12 +1,9 @@
-created: 20210525091619581
-modified: 20221024034724440
 tags: $:/tags/Macro/Garden
 title: $:/plugins/kookma/garden/macros/main-ui
 type: text/vnd.tiddlywiki
 
 \whitespace trim
 
-\define stateTid()    xx$:/state/garden/examples
 \define sandboxTid()  xx$:/sandbox/garden/examples/$(vv-exmp-tiddler)$
 
 \define btn-edit-example()
@@ -24,38 +21,37 @@ type: text/vnd.tiddlywiki
 
 \define btn-copy-example-to-clipboard()
 <$button message="tm-copy-to-clipboard" class="tc-btn-invisible" tooltip="copy code to clipboard" 
-         param={{{ [<sandboxTid>get[text]] :else[<stateTid>get[text]get[text]] }}} >
+         param={{{ [<sandboxTid>get[text]] :else[<stateTidSelectedCode>get[text]get[text]] }}} >
 {{$:/core/images/copy-clipboard}}
 </$button>
 \end
 
 <!-- create the main ui of garden -->
 \define garden-ui(filter:'[all[shadows+tiddlers]tag[Code]sort[title]]')
-<$let vv-exmp-filter  = <<__filter__>>
-      vv-exmp-tiddler = {{{ [<stateTid>get[text]] }}}
+<$let vv-exmp-filter  = {{{ [<__filter__>] [<stateTidSelectedTag>get[text]] :and[join[:and]]}}}
+      vv-exmp-tiddler = {{{ [<stateTidSelectedCode>get[text]] }}}
       vv-edit-status  = {{{ [<sandboxTid>is[tiddler]then[yes]else[no]] }}} >
 
 <!-- create the header, to select an example and navigate through them -->
 <header class="twg-header">
-<$select tiddler=<<stateTid>> default='default' class="twg-select">
+<$select tiddler=<<stateTidSelectedCode>> default='default' class="twg-select">
 <option value='default' disabled>Select an example</option>
 <$list filter='[subfilter<vv-exmp-filter>]'>
 <option value=<<currentTiddler>>>
-<$view field='caption'>
-<$view field='title'/>
-</$view>
+<$text text={{{[<currentTiddler>split[/]first[]]}}}/>:&nbsp;<$view field='description'/>
 </option>
 </$list>
 </$select>
 
-<$tiddler tiddler=<<vv-exmp-tiddler>> >
-<$macrocall $name=simpleNavigation tag="Code" class="twg-navigation"/>
-</$tiddler>
+<$let currentTiddler=<<vv-exmp-tiddler>> stateTid=<<stateTidSelectedCode>> >
+<$macrocall $name=simple-navigation tag="Code" class="twg-navigation"/>
+</$let>
+<div><<filter-by-tag>></div>
 </header>
 
 <!-- the Nav part implements buttons to create/clone/view buttons and edit/reset/copy code-->
 <nav class="twg-nav">
-<div>
+<div class="twg-author-tools">
 <<create-new-example>> | 
 <$macrocall $name="clone-this-example" thisTiddler=<<vv-exmp-tiddler>> /> | 
 <$macrocall $name="open-this-in-storyriver" thisTiddler=<<vv-exmp-tiddler>> />

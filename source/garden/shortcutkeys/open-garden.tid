@@ -1,0 +1,12 @@
+code-body: yes
+key: ((open-garden))
+tags: $:/tags/KeyboardShortcut
+title: $:/plugins/kookma/garden/shortcutkeys/open-garden
+type: text/vnd.tiddlywiki
+
+\import $:/plugins/kookma/garden/macros/definitions
+<$navigator story="$:/StoryList" history="$:/HistoryList">
+<$action-setfield $tiddler="$:/state/sidebar" text="no"/>
+<$action-sendmessage $message="tm-close-all-tiddlers" />
+<$action-navigate $to={{{ [<gardenUiTiddler>get[text]] }}} $scroll="yes"/>
+</$navigator>

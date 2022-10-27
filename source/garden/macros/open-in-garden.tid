@@ -1,0 +1,19 @@
+tags: $:/tags/Macro/Garden
+title: $:/plugins/kookma/garden/macros/open-in-garden
+type: text/vnd.tiddlywiki
+
+\define open-in-garden-actions()
+<$action-setfield $tiddler=<<stateTidSelectedCode>> text=<<vv-code-tiddler>> />
+<$action-deletetiddler $tiddler=<<stateTidSelectedTag>> />
+\end
+
+\define open-in-garden()
+<$let vv-code-tiddler     = {{{ [<currentTiddler>split[/]first[]addsuffix[/code]] }}} 
+      vv-gardenui-tiddler = {{{ [<gardenUiTiddler>get[text]] }}}
+ >
+Open this in&nbsp;
+<$button class="tc-btn-invisible tc-tiddlylink" to=<<vv-gardenui-tiddler>> actions=<<open-in-garden-actions>> >
+Garden
+</$button>
+</$let>
+\end

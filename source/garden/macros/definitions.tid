@@ -1,0 +1,7 @@
+tags: $:/tags/Macro/Garden
+title: $:/plugins/kookma/garden/macros/definitions
+type: text/vnd.tiddlywiki
+
+\define stateTidSelectedCode() xx$:/state/garden/selected-code
+\define stateTidSelectedTag()  xx$:/state/garden/selected-tag
+\define gardenUiTiddler()      $:/plugins/kookma/garden/config/UiTiddler

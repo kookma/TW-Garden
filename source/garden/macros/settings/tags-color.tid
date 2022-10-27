@@ -1,0 +1,19 @@
+tags: 
+title: $:/plugins/kookma/garden/macros/settings/tags-color
+type: text/vnd.tiddlywiki
+
+\define reset-color(tiddler, color)
+<$button class="tc-btn-invisible"> {{$:/core/images/refresh-button}}
+<$action-setfield $tiddler=<<__tiddler__>> $field=color $value=<<__color__>> />
+</$button>
+\end
+
+\define set-color(tiddler)
+<$edit-text tiddler=<<__tiddler__>> tag=input field=color type=text />
+<$edit-text tiddler=<<__tiddler__>> tag=input field=color  />
+\end
+
+|table-borderless twg-settings|k
+|Elementary|<<set-color Elementary>>|<<reset-color Elementary #119dc0>>|
+|Intermediate|<<set-color Intermediate>>|<<reset-color Intermediate #a5a01d>>|
+|Advanced|<<set-color Advanced>>|<<reset-color Advanced #aa0877>>|

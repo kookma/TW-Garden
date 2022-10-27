@@ -1,10 +1,9 @@
 code-body: yes
-created: 20221020190229529
-modified: 20221023200524937
 tags: 
 title: $:/plugins/kookma/garden/viewtemplates/tiddler-code
 type: text/vnd.tiddlywiki
 
+\import [all[tiddlers+shadows]tag[$:/tags/Macro/Garden]]
 <div class="twg-example">
 
 ; Description
@@ -23,4 +22,6 @@ type: text/vnd.tiddlywiki
 </div>
 
 <footer class="twg-footer">
-Go to remark: <$link to={{{[<currentTiddler>removesuffix[code]addsuffix[remark]]}}}/></footer>
+<div>Go to remark: <$link to={{{[<currentTiddler>removesuffix[code]addsuffix[remark]]}}}/></div>
+<div><<open-in-garden>></div>
+</footer>

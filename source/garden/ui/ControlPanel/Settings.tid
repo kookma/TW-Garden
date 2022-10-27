@@ -1,0 +1,26 @@
+caption: Garden
+tags: $:/tags/ControlPanel/SettingsTab $:/tags/MoreSideBar
+title: $:/plugins/kookma/garden/ui/ControlPanel/Settings
+type: text/vnd.tiddlywiki
+
+These settings let you customise the behaviour of Garden plugin.
+
+---
+
+; Show Garden setting in more sidebar
+:<$checkbox tiddler="$:/plugins/kookma/garden/ui/ControlPanel/Settings" tag="$:/tags/MoreSideBar"> Show setting in more sidebar</$checkbox>
+
+;Garden UI tiddler title
+:<$edit-text tiddler="$:/plugins/kookma/garden/config/UiTiddler" tag=input field="text" class="my-1"/> <$transclude tiddler="$:/plugins/kookma/garden/macros/settings/garden-ui-tiddler"/>
+
+
+; Options
+:<$checkbox tiddler="$:/plugins/kookma/garden/styles/author-tools" tag="$:/tags/Stylesheet"> Hide author tools</$checkbox>
+:<$checkbox tiddler="$:/plugins/kookma/garden/styles/code-tiddler-color" tag="$:/tags/Stylesheet"> Colorful code tiddler</$checkbox>
+
+
+;Difficulty level tag color
+:<$transclude tiddler="$:/plugins/kookma/garden/macros/settings/tags-color" mode=block/>
+
+
+

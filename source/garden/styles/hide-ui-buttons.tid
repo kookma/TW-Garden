@@ -1,0 +1,8 @@
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/garden/styles/hide-ui-buttons
+type: text/vnd.tiddlywiki
+
+\import $:/plugins/kookma/garden/macros/definitions
+<$list filter="[<gardenUiTiddler>get[text]]">
+[data-tiddler-title^="<$view field=title/>"]	.tc-tiddler-title .tc-titlebar button:not(.tc-btn-\%24\%3A\%2Fcore\%2Fui\%2FButtons\%2Fclose)  {display:none;}
+</$list> 

@@ -1,0 +1,16 @@
+.twg-settings input[type="color"]{
+	vertical-align:baseline;
+	height:1.65em;
+}
+/* below CSS are used to work under $:/ControlPanel
+   see .tc-control-panel */
+table.twg-settings {
+	width:unset;
+}
+.twg-settings input[type="text"]
+{
+	width:100px;
+}
+.twg-settings input[type="color"]{
+	width:50px;
+}

@@ -1,0 +1,13 @@
+tags: $:/tags/Macro/Garden
+title: $:/plugins/kookma/garden/macros/filter-by-tag
+type: text/vnd.tiddlywiki
+
+\define filter-by-tag()
+\define radio-actions() <$action-deletetiddler $tiddler=<<stateTidSelectedCode>> />
+<div class="twg-radio">
+<$radio tiddler=<<stateTidSelectedTag>> field="text" value="" default="" actions=<<radio-actions>>> All</$radio>
+<$radio tiddler=<<stateTidSelectedTag>> field="text" value="[tag[Elementary]]" default="" actions=<<radio-actions>>> Elementary</$radio>
+<$radio tiddler=<<stateTidSelectedTag>> field="text" value="[tag[Intermediate]]" default="" actions=<<radio-actions>>> Intermediate</$radio>
+<$radio tiddler=<<stateTidSelectedTag>> field="text" value="[tag[Advanced]]" default="" actions=<<radio-actions>>> Advanced</$radio>
+</div>
+\end

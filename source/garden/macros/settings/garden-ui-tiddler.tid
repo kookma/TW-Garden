@@ -1,0 +1,23 @@
+code-body: yes
+tags: 
+title: $:/plugins/kookma/garden/macros/settings/garden-ui-tiddler
+type: text/vnd.tiddlywiki
+
+\import [all[tiddlers+shadows]tag[$:/tags/Macro/Garden]]
+
+\define create-garden-ui-actions()
+<$action-createtiddler $basetitle=<<vv-garden-ui-tiddler>> /> 
+<$action-navigate $to=<<vv-garden-ui-tiddler>> $scroll="yes"/>
+\end
+
+
+<$let vv-garden-ui-tiddler={{{[<gardenUiTiddler>get[text]]}}} >
+<$list filter="[<vv-garden-ui-tiddler>!is[missing]]">
+Goto <$link/>
+</$list>
+<$list filter="[<vv-garden-ui-tiddler>is[missing]]">
+Craete <$button class="tc-btn-invisible tc-tiddlylink" actions=<<create-garden-ui-actions>> >
+<$text text=<<vv-garden-ui-tiddler>> />
+</$button>
+</$list>
+</$let>

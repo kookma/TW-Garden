@@ -1,10 +1,9 @@
 code-body: yes
-created: 20221020185225859
 list-before: $:/config/ViewTemplateBodyFilters/system
-modified: 20221021143320753
 tags: $:/tags/ViewTemplateBodyFilter
 title: $:/plugins/kookma/garden/config/ViewTemplateBodyFilters
 type: text/vnd.tiddlywiki
 
 [tag[Code]then[$:/plugins/kookma/garden/viewtemplates/tiddler-code]]
 [tag[Remark]then[$:/plugins/kookma/garden/viewtemplates/tiddler-remark]]
+[match{$:/plugins/kookma/garden/config/UiTiddler}then[$:/plugins/kookma/garden/viewtemplates/garden-ui]]

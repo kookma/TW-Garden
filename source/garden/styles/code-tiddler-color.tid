@@ -1,0 +1,16 @@
+tags: $:/tags/Stylesheet
+title: $:/plugins/kookma/garden/styles/code-tiddler-color
+type: text/vnd.tiddlywiki
+
+[data-tags*="Elementary"] {
+/*  border-top: 2px solid #119DC0; */
+	background:linear-gradient(to bottom, #119DC020, <<colour tiddler-background>> 25%);
+}
+[data-tags*="Intermediate"] {
+/*  border-top: 2px solid #A5A01D; */
+	background:linear-gradient(to bottom, #A5A01D20, <<colour tiddler-background>> 25%);	
+}
+[data-tags*="Advanced"] {
+/*  border-top: 0px solid #AA0877; */
+	background:linear-gradient(to bottom, #AA087720, <<colour tiddler-background>> 25%);	
+}
