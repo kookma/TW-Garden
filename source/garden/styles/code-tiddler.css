@@ -1,0 +1,10 @@
+.twg-code-tiddler h2{
+	font-weight:500;
+	font-size: 0.9rem;
+}
+
+.twg-code-tiddler-desc,
+.twg-code-tiddler-code,
+.twg-code-tiddler-remark {
+	padding-left:1.5rem;
+}

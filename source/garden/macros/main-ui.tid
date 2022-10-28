@@ -38,13 +38,13 @@ type: text/vnd.tiddlywiki
 <option value='default' disabled>Select an example</option>
 <$list filter='[subfilter<vv-exmp-filter>]'>
 <option value=<<currentTiddler>>>
-<$text text={{{[<currentTiddler>split[/]first[]]}}}/>:&nbsp;<$view field='description'/>
+<sup><$text text={{{[<currentTiddler>split[/]first[]]}}}/></sup>&nbsp;<$view field='description'/>
 </option>
 </$list>
 </$select>
 
 <$let currentTiddler=<<vv-exmp-tiddler>> stateTid=<<stateTidSelectedCode>> >
-<$macrocall $name=simple-navigation tag="Code" class="twg-navigation"/>
+<$macrocall $name=simple-navigation codeFilter=<<vv-exmp-filter>> class="twg-navigation"/>
 </$let>
 <div><<filter-by-tag>></div>
 </header>

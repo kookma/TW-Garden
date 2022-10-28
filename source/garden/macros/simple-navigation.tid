@@ -2,15 +2,15 @@ tags: $:/tags/Macro/Garden
 title: $:/plugins/kookma/garden/macros/simple-navigation
 type: text/vnd.tiddlywiki
 
-\define simple-navigation(tag:"Code", class:"twg-navigation")
+\define simple-navigation(codeFilter:"", class:"twg-navigation")
 <div class="$class$">
-<$list filter="[tag<__tag__>before<currentTiddler>]" variable="prevTiddler">
+<$list filter="[subfilter<__codeFilter__>before<currentTiddler>]" variable="prevTiddler">
 <$button tooltip=<<prevTiddler>> class="tc-btn-invisible">previous
 <$action-setfield $tiddler=<<stateTid>> $field=text $value=<<prevTiddler>> />
 </$button>
 </$list>
-<$list filter="[tag<__tag__>after<currentTiddler>] [tag<__tag__>before<currentTiddler>] +[count[]compare:integer:gteq[2]]" variable=ignore>|</$list>
-<$list filter="[tag<__tag__>after<currentTiddler>]" variable="nextTiddler">
+<$list filter="[subfilter<__codeFilter__>after<currentTiddler>] [subfilter<__codeFilter__>before<currentTiddler>] +[count[]compare:integer:gteq[2]]" variable=ignore>|</$list>
+<$list filter="[subfilter<__codeFilter__>after<currentTiddler>]" variable="nextTiddler">
 <$button tooltip=<<nextTiddler>> class="tc-btn-invisible">next
 <$action-setfield $tiddler=<<stateTid>> $field=text $value=<<nextTiddler>> />
 </$button>

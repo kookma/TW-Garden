@@ -2,15 +2,22 @@ tags: $:/tags/Stylesheet
 title: $:/plugins/kookma/garden/styles/code-tiddler-color
 type: text/vnd.tiddlywiki
 
+<$let color-scheme    = {{{ [[$:/palette]get[text]get[color-scheme]] }}}
+      opacity         = {{{ [<color-scheme>match[dark]then[60]else[30]] }}}
+			elementary-bg   = {{{ [[#119DC0]addsuffix<opacity>] }}}
+			intermediate-bg = {{{ [[#A5A01D]addsuffix<opacity>] }}}
+			advanced-bg     = {{{ [[#AA0877]addsuffix<opacity>] }}}
+  >
 [data-tags*="Elementary"] {
 /*  border-top: 2px solid #119DC0; */
-	background:linear-gradient(to bottom, #119DC020, <<colour tiddler-background>> 25%);
+	background:linear-gradient(to bottom, <<elementary-bg>>, <<colour tiddler-background>> 25%);
 }
 [data-tags*="Intermediate"] {
 /*  border-top: 2px solid #A5A01D; */
-	background:linear-gradient(to bottom, #A5A01D20, <<colour tiddler-background>> 25%);	
+	background:linear-gradient(to bottom, <<intermediate-bg>>, <<colour tiddler-background>> 25%);	
 }
 [data-tags*="Advanced"] {
 /*  border-top: 0px solid #AA0877; */
-	background:linear-gradient(to bottom, #AA087720, <<colour tiddler-background>> 25%);	
+	background:linear-gradient(to bottom, <<advanced-bg>>, <<colour tiddler-background>> 25%);	
 }
+</$let>

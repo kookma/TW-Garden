@@ -4,22 +4,24 @@ title: $:/plugins/kookma/garden/viewtemplates/tiddler-code
 type: text/vnd.tiddlywiki
 
 \import [all[tiddlers+shadows]tag[$:/tags/Macro/Garden]]
-<div class="twg-example">
+<main class="twg-code-tiddler">
 
-; Description
-: <$transclude field='description' mode=inline />
+!! Description
+<section class="twg-code-tiddler-desc">
+<$transclude field='description' mode=inline />
+</section>
 
-; Code
-:<section class="twg-example-code">
+!! Code
+<section class="twg-code-tiddler-code">
   <$codeblock code={{!!text}} language=xml/>
 </section>
 
-; Remark
-:<section class="twg-example-code">
+!! Remark
+<section class="twg-code-tiddler-remark">
   <$transclude tiddler={{{[<currentTiddler>removesuffix[code]addsuffix[remark]]}}} field=text mode=block/>
 </section>  
 
-</div>
+</main>
 
 <footer class="twg-footer">
 <div>Go to remark: <$link to={{{[<currentTiddler>removesuffix[code]addsuffix[remark]]}}}/></div>
