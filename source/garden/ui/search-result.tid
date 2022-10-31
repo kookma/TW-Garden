@@ -1,0 +1,42 @@
+caption: Garden
+code-body: yes
+created: 20221030151041846
+first-search-filter: [tag[Code]search:description<userInput>limit[250]]
+modified: 20221031144246488
+second-search-filter: [tag[Remark]search:text,keywords<userInput>limit[250]]
+tags: $:/tags/SearchResults
+title: $:/plugins/kookma/garden/ui/search-result
+type: text/vnd.tiddlywiki
+
+\import [all[tiddlers+shadows]tag[$:/tags/Macro/Garden]]
+
+
+\define searchResultList()
+\whitespace trim
+//<small>In code description</small>//
+
+<$let vv-gardenui-tiddler = {{{ [<gardenUiTiddler>get[text]] }}}  >
+<$list filter="[<userInput>minlength[1]]" variable="ignore">
+<$list filter={{{ [<configTiddler>get[first-search-filter]] }}}>
+<span class={{{[<currentTiddler>addsuffix[-primaryList]] -[<searchListState>get[text]] +[then[]else[tc-list-item-selected]] }}}>
+<$linkcatcher set=<<stateTidSelectedCode>> setTo=<<currentTiddler>> actions='<$action-navigate $to=<<vv-gardenui-tiddler>> $scroll=yes/>'>
+<$link to=<<currentTiddler>> ><$view field=description/></$link>
+</$linkcatcher>
+</span>
+</$list>
+</$list>
+
+//<small>In code remarks</small>//
+
+<$list filter="[<userInput>minlength[1]]" variable="ignore">
+<$list filter={{{ [<configTiddler>get[second-search-filter]] }}}>
+<span class={{{[<currentTiddler>addsuffix[-secondaryList]] -[<searchListState>get[text]] +[then[]else[tc-list-item-selected]] }}}>
+<$linkcatcher set=<<stateTidSelectedCode>> setTo={{{ [<currentTiddler>split[/]first[]addsuffix[/code]] }}} actions='<$action-navigate $to=<<vv-gardenui-tiddler>> $scroll=yes/>'>
+<$link to=<<currentTiddler>> ><$view tiddler={{{ [<currentTiddler>split[/]first[]addsuffix[/code]] }}}  field=description/></$link>
+</$linkcatcher>
+</span>
+</$list>
+</$list>
+</$let>
+\end
+<<searchResultList>>
