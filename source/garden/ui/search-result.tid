@@ -1,8 +1,6 @@
 caption: Garden
 code-body: yes
-created: 20221030151041846
 first-search-filter: [tag[Code]search:description<userInput>limit[250]]
-modified: 20221031144246488
 second-search-filter: [tag[Remark]search:text,keywords<userInput>limit[250]]
 tags: $:/tags/SearchResults
 title: $:/plugins/kookma/garden/ui/search-result

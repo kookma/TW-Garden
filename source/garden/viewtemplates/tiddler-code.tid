@@ -6,11 +6,6 @@ type: text/vnd.tiddlywiki
 \import [all[tiddlers+shadows]tag[$:/tags/Macro/Garden]]
 <main class="twg-code-tiddler">
 
-!! Description
-<section class="twg-code-tiddler-desc">
-<$transclude field='description' mode=inline />
-</section>
-
 !! Code
 <section class="twg-code-tiddler-code">
   <$codeblock code={{!!text}} language=xml/>

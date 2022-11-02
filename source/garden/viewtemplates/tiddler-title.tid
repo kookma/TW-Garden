@@ -1,0 +1,7 @@
+code-body: yes
+tags: 
+title: $:/plugins/kookma/garden/viewtemplates/tiddler-title
+type: text/vnd.tiddlywiki
+
+{{!!title}}<br>
+<$text text={{{ [<currentTiddler>get[title]split[/]first[]addsuffix[/code]] :map[get[description]] }}} />
