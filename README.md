@@ -1,5 +1,5 @@
 # Tiddlywiki Garden
-The garden is used to demonstrate, practice and learn, Filters, Wikitext, and CSS. [TiddlyWiki](https://tiddlywiki.com) garden ispired from [CSS Zen Garden](https://en.wikipedia.org/wiki/CSS_Zen_Garden). 
+The garden is used to demonstrate, practice and learn, Filters, Wikitext, and CSS. [TiddlyWiki](https://tiddlywiki.com) garden inspired from [CSS Zen Garden](https://en.wikipedia.org/wiki/CSS_Zen_Garden). 
 
 **NOTE**: [TiddlyWiki](https://tiddlywiki.com) Garden is NOT a resource, instead it is a tool to create resources, like a Filter Garden, or a CSS Garden. 
 
