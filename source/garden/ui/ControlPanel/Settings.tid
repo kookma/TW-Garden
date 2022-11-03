@@ -1,4 +1,6 @@
 caption: Garden
+created: 20221103195214411
+modified: 20221103200515785
 tags: $:/tags/ControlPanel/SettingsTab $:/tags/MoreSideBar
 title: $:/plugins/kookma/garden/ui/ControlPanel/Settings
 type: text/vnd.tiddlywiki
@@ -22,5 +24,6 @@ These settings let you customise the behaviour of Garden plugin.
 ;Difficulty level tag color
 :<$transclude tiddler="$:/plugins/kookma/garden/macros/settings/tags-color" mode=block/>
 
-
+; Sort examples
+:<$link to="Reorder Examples in Garden"/>
 

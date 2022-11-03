@@ -1,12 +1,24 @@
 caption: Garden
 code-body: yes
+created: 20221103204324269
 first-search-filter: [tag[Code]search:description<userInput>limit[250]]
-second-search-filter: [tag[Remark]search:text,keywords<userInput>limit[250]]
+modified: 20221103210554994
+second-search-filter: [tag[Remark]search:text<userInput>][tag[Code]search:keywords<userInput>]:and[limit[250]]
 tags: $:/tags/SearchResults
 title: $:/plugins/kookma/garden/ui/search-result
 type: text/vnd.tiddlywiki
 
 \import [all[tiddlers+shadows]tag[$:/tags/Macro/Garden]]
+
+\define lc-actions()
+<$let currentTiddler={{{ [<currentTiddler>split[/]first[]addsuffix[/code]] }}}
+      difficulty-level={{{ [<currentTiddler>contains:tags[Elementary]then[Elementary]]
+                      :else[<currentTiddler>contains:tags[Intermediate]then[Intermediate]]
+                      :else[<currentTiddler>contains:tags[Advanced]then[Advanced]] }}} >
+<$action-setfield $tiddler=<<stateTidSelectedTag>> $field=text $value=<<difficulty-level>> />
+<$action-navigate $to=<<vv-gardenui-tiddler>> $scroll=yes/>
+</$let>
+\end
 
 
 \define searchResultList()
@@ -17,19 +29,19 @@ type: text/vnd.tiddlywiki
 <$list filter="[<userInput>minlength[1]]" variable="ignore">
 <$list filter={{{ [<configTiddler>get[first-search-filter]] }}}>
 <span class={{{[<currentTiddler>addsuffix[-primaryList]] -[<searchListState>get[text]] +[then[]else[tc-list-item-selected]] }}}>
-<$linkcatcher set=<<stateTidSelectedCode>> setTo=<<currentTiddler>> actions='<$action-navigate $to=<<vv-gardenui-tiddler>> $scroll=yes/>'>
+<$linkcatcher set=<<stateTidSelectedCode>> setTo=<<currentTiddler>> actions=<<lc-actions>> >
 <$link to=<<currentTiddler>> ><$view field=description/></$link>
 </$linkcatcher>
 </span>
 </$list>
 </$list>
 
-//<small>In code remarks</small>//
+//<small>In remarks and keywords</small>//
 
 <$list filter="[<userInput>minlength[1]]" variable="ignore">
 <$list filter={{{ [<configTiddler>get[second-search-filter]] }}}>
 <span class={{{[<currentTiddler>addsuffix[-secondaryList]] -[<searchListState>get[text]] +[then[]else[tc-list-item-selected]] }}}>
-<$linkcatcher set=<<stateTidSelectedCode>> setTo={{{ [<currentTiddler>split[/]first[]addsuffix[/code]] }}} actions='<$action-navigate $to=<<vv-gardenui-tiddler>> $scroll=yes/>'>
+<$linkcatcher set=<<stateTidSelectedCode>> setTo={{{ [<currentTiddler>split[/]first[]addsuffix[/code]] }}} actions=<<lc-actions>> >
 <$link to=<<currentTiddler>> ><$view tiddler={{{ [<currentTiddler>split[/]first[]addsuffix[/code]] }}}  field=description/></$link>
 </$linkcatcher>
 </span>

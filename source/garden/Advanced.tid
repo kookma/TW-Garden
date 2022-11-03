@@ -1,3 +1,8 @@
 color: #aa0877
+created: 20221103181838662
+list: 011/code 003/code 012/code
+modified: 20221103202706647
 title: Advanced
 type: text/vnd.tiddlywiki
+
+<$transclude tiddler="$:/plugins/kookma/garden/templates/level-template" mode=block/>

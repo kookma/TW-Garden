@@ -3,9 +3,9 @@ title: $:/plugins/kookma/garden/readme
 type: text/vnd.tiddlywiki
 
 ;Tiddlywiki Garden
-The garden is used to demonstrate, practice and learn, Filters, Wikitext, and CSS. Tiddlywiki garden ispired from [[CSS Zen Garden|https://en.wikipedia.org/wiki/CSS_Zen_Garden]].
+The garden is used to demonstrate, practice and learn, Filters, Wikitext, and CSS. Tiddlywiki garden inspired from [[CSS Zen Garden|https://en.wikipedia.org/wiki/CSS_Zen_Garden]].
 
-;Code and demo
+; Code and demo
 For learning plugin features, syntax, tutorial and examples see the plugin demo and code pages
 
 * Demo: https://kookma.github.io/TW-Garden/

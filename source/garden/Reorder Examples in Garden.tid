@@ -1,0 +1,32 @@
+created: 20221103152805176
+modified: 20221103202406519
+tags: 
+title: Reorder Examples in Garden
+type: text/vnd.tiddlywiki
+
+\define stateTid() $:/state/garden-sort-items
+
+\define sort-actions(sort-order:'')
+<$set name=this-level-examples filter="[all[tiddlers+shadows]tag<level>$sort-order$sort[description]]">
+<$action-setfield $tiddler=<<level>> $field=list $value=<<this-level-examples>> />
+</$set>
+\end
+
+
+<$select tiddler=<<stateTid>> default="Elementary" class="twg-select">
+<option value="" disabled>Select a level</option>
+<$list filter="Elementary Intermediate Advanced">
+<option><<currentTiddler>></option>
+</$list>
+</$select>
+<$let level={{{ [<stateTid>get[text]else[Elementary]] }}} >
+<$button actions=<<sort-actions>> tooltip="Sort ascending" >{{$:/core/images/down-arrow}}</$button> 
+<$button actions=<<sort-actions "!">> tooltip="Sort descending" >{{$:/core/images/up-arrow}}</$button> 
+
+<div>
+
+Sort examples in Garden by drag and drop
+
+<$macrocall $name="list-tagged-draggable" tag=<<level>> itemTemplate="$:/plugins/kookma/garden/templates/item-template"/>
+</div>
+</$let>

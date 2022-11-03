@@ -1,10 +1,12 @@
+created: 20221103185111626
+modified: 20221103194032301
 tags: $:/tags/Macro/Garden
 title: $:/plugins/kookma/garden/macros/main-ui
 type: text/vnd.tiddlywiki
 
 \whitespace trim
 
-\define sandboxTid()  xx$:/sandbox/garden/examples/$(vv-exmp-tiddler)$
+\define sandboxTid()  $:/sandbox/garden/examples/$(vv-exmp-tiddler)$
 
 \define btn-edit-example()
 <$button class="tc-btn-invisible" tooltip="edit code">{{$:/core/images/edit-button}}
@@ -27,18 +29,19 @@ type: text/vnd.tiddlywiki
 \end
 
 <!-- create the main ui of garden -->
-\define garden-ui(filter:'[all[shadows+tiddlers]tag[Code]sort[title]]')
-<$let vv-exmp-filter  = {{{ [<__filter__>] [<stateTidSelectedTag>get[text]] :and[join[:and]]}}}
+\define garden-ui(filter:'[all[shadows+tiddlers]tag[Code]]')
+<$let vv-level-tag    = {{{ [<stateTidSelectedTag>get[text]] :else[[Elementary]] }}}
+      vv-exmp-filter  = '[subfilter<__filter__>]:filter[tag<vv-level-tag>]'
       vv-exmp-tiddler = {{{ [<stateTidSelectedCode>get[text]] }}}
-      vv-edit-status  = {{{ [<sandboxTid>is[tiddler]then[yes]else[no]] }}} >
+      vv-edit-status  = {{{ [<sandboxTid>is[tiddler]then[yes]else[no]] }}} > 
 
 <!-- create the header, to select an example and navigate through them -->
 <header class="twg-header">
 <$select tiddler=<<stateTidSelectedCode>> default='default' class="twg-select">
 <option value='default' disabled>Select an example</option>
-<$list filter='[subfilter<vv-exmp-filter>]'>
+<$list filter=<<vv-exmp-filter>> >
 <option value=<<currentTiddler>>>
-<sup><$text text={{{[<currentTiddler>split[/]first[]]}}}/></sup>&nbsp;<$view field='description'/>
+<$view field='description'><$view field=title/></$view>
 </option>
 </$list>
 </$select>

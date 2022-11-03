@@ -1,0 +1,10 @@
+code-body: yes
+created: 20221103182043999
+modified: 20221103182113191
+tags: 
+title: $:/plugins/kookma/garden/templates/level-template
+type: text/vnd.tiddlywiki
+
+Examples tagged with ''<<currentTiddler>>''
+
+<$macrocall $name="list-tagged-draggable" tag=<<currentTiddler>> itemTemplate="$:/plugins/kookma/garden/templates/item-template"/>

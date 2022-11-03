@@ -1,0 +1,14 @@
+/* Sort Examples */
+.twg-item-list-title,
+.twg-item-list-description {
+	display:inline-block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow-x:clip;
+}
+.twg-item-list-title {
+	width:6rem;
+}
+.twg-item-list-description {
+	max-width:calc(100% - 10rem);
+}
