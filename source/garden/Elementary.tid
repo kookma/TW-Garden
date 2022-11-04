@@ -1,9 +1,6 @@
 color: #119dc0
-created: 20221103182325326
-list: 005/code 001/code 004/code
-modified: 20221103191426105
 tags: 
 title: Elementary
 type: text/vnd.tiddlywiki
 
-<$transclude tiddler="$:/plugins/kookma/garden/templates/level-template" mode=block/>
+<$transclude tiddler="$:/plugins/kookma/garden/templates/reorder-template" mode=block/>

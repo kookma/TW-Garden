@@ -1,0 +1,8 @@
+caption: Examples
+tags: $:/tags/SideBar
+title: $:/plugins/kookma/garden/ui/sidebar/examples
+type: text/vnd.tiddlywiki
+
+<$list filter="Elementary Intermediate Advanced">
+<$transclude tiddler="$:/plugins/kookma/garden/templates/reorder-template" mode=block/>
+</$list>

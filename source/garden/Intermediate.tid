@@ -1,7 +1,5 @@
 color: #a5a01d
-created: 20221103182307666
-modified: 20221103182319469
 title: Intermediate
 type: text/vnd.tiddlywiki
 
-<$transclude tiddler="$:/plugins/kookma/garden/templates/level-template" mode=block/>
+<$transclude tiddler="$:/plugins/kookma/garden/templates/reorder-template" mode=block/>

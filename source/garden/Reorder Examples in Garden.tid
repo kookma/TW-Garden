@@ -1,10 +1,8 @@
-created: 20221103152805176
-modified: 20221103202406519
 tags: 
 title: Reorder Examples in Garden
 type: text/vnd.tiddlywiki
 
-\define stateTid() $:/state/garden-sort-items
+\import $:/plugins/kookma/garden/macros/definitions
 
 \define sort-actions(sort-order:'')
 <$set name=this-level-examples filter="[all[tiddlers+shadows]tag<level>$sort-order$sort[description]]">
@@ -13,15 +11,16 @@ type: text/vnd.tiddlywiki
 \end
 
 
-<$select tiddler=<<stateTid>> default="Elementary" class="twg-select">
+<$select tiddler=<<stateTidReorderExamples>> default="Elementary" class="twg-select">
 <option value="" disabled>Select a level</option>
 <$list filter="Elementary Intermediate Advanced">
 <option><<currentTiddler>></option>
 </$list>
 </$select>
-<$let level={{{ [<stateTid>get[text]else[Elementary]] }}} >
+<$let level={{{ [<stateTidReorderExamples>get[text]else[Elementary]] }}} >
 <$button actions=<<sort-actions>> tooltip="Sort ascending" >{{$:/core/images/down-arrow}}</$button> 
 <$button actions=<<sort-actions "!">> tooltip="Sort descending" >{{$:/core/images/up-arrow}}</$button> 
+<$button actions='<$action-deletefield $tiddler=<<level>> list/>' tooltip="Reset" >{{$:/core/images/refresh-button}}</$button> 
 
 <div>
 

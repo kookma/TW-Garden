@@ -1,0 +1,16 @@
+code-body: yes
+tags: 
+title: $:/plugins/kookma/garden/templates/reorder-template
+type: text/vnd.tiddlywiki
+
+\import $:/plugins/kookma/garden/macros/definitions
+
+Examples tagged with ''<<currentTiddler>>''
+
+<$macrocall $name='list-tagged-draggable' tag=<<currentTiddler>> itemTemplate='$:/plugins/kookma/garden/templates/item-template'/>
+
+-- <small>
+<$button class='tc-btn-invisible tc-tiddlylink' set=<<stateTidReorderExamples>> setTo=<<currentTiddler>> to='Reorder Examples in Garden'>
+Reorder Examples in Garden
+</$button>
+</small>

@@ -2,6 +2,9 @@ tags: $:/tags/Macro/Garden
 title: $:/plugins/kookma/garden/macros/definitions
 type: text/vnd.tiddlywiki
 
-\define stateTidSelectedCode() xx$:/state/garden/selected-code
-\define stateTidSelectedTag()  xx$:/state/garden/selected-tag
-\define gardenUiTiddler()      $:/plugins/kookma/garden/config/UiTiddler
+\define stateTidSelectedCode()    $:/state/garden/selected-code
+\define stateTidSelectedTag()     $:/state/garden/selected-tag
+\define stateTidReorderExamples() $:/state/garden/reorder-items
+\define sandboxTid()              $:/sandbox/garden/$(vv-exmp-tiddler)$
+
+\define gardenUiTiddler()         $:/plugins/kookma/garden/config/UiTiddler

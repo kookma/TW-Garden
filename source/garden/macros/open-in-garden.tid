@@ -4,12 +4,15 @@ type: text/vnd.tiddlywiki
 
 \define open-in-garden-actions()
 <$action-setfield $tiddler=<<stateTidSelectedCode>> text=<<vv-code-tiddler>> />
-<$action-deletetiddler $tiddler=<<stateTidSelectedTag>> />
+<$action-setfield $tiddler=<<stateTidSelectedTag>> $field=text $value=<<difficulty-level>> />
 \end
 
 \define open-in-garden()
 <$let vv-code-tiddler     = {{{ [<currentTiddler>split[/]first[]addsuffix[/code]] }}} 
       vv-gardenui-tiddler = {{{ [<gardenUiTiddler>get[text]] }}}
+      difficulty-level    = {{{ [<vv-code-tiddler>contains:tags[Elementary]then[Elementary]]
+                            :else[<vv-code-tiddler>contains:tags[Intermediate]then[Intermediate]]
+                            :else[<vv-code-tiddler>contains:tags[Advanced]then[Advanced]] }}}			
  >
 Open this in&nbsp;
 <$button class="tc-btn-invisible tc-tiddlylink" to=<<vv-gardenui-tiddler>> actions=<<open-in-garden-actions>> >

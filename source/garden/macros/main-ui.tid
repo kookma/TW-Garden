@@ -1,12 +1,8 @@
-created: 20221103185111626
-modified: 20221103194032301
 tags: $:/tags/Macro/Garden
 title: $:/plugins/kookma/garden/macros/main-ui
 type: text/vnd.tiddlywiki
 
 \whitespace trim
-
-\define sandboxTid()  $:/sandbox/garden/examples/$(vv-exmp-tiddler)$
 
 \define btn-edit-example()
 <$button class="tc-btn-invisible" tooltip="edit code">{{$:/core/images/edit-button}}
